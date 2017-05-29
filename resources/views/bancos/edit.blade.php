@@ -60,7 +60,7 @@
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-info btn-fill pull-right">Agregar banco</button>
+                            <button type="submit" class="btn btn-info btn-fill pull-right">Actualizar banco</button>
                             <a href="{{ route('admin.bancos') }}" class="btn btn-danger btn-fill pull-right">Cancelar</a>
                             <div class="clearfix"></div>
                         </form> 

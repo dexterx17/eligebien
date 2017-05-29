@@ -11,7 +11,7 @@ class Servicio extends Model
     protected $table = "servicios";
 
     protected $fillable = [
-    	'servicio','descripcion','icono','slug'
+    	'servicio','descripcion','icono','slug','categoria'
     ];
 
     public function parametros(){

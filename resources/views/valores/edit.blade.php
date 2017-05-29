@@ -29,7 +29,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>{{ $p->parametro }}</label>
-                                            <textarea name="param{{ $p->id}}" class="form-control" required="required" placeholder="{{ $p->descripcion }}">{{ $p->valor }} </textarea>
+                                            <textarea name="param{{ $p->id}}" rows="5" class="form-control" required="required" placeholder="{{ $p->descripcion }}">{{ $p->valor }} </textarea>
                                         </div>
                                     </div>
                                 </div>

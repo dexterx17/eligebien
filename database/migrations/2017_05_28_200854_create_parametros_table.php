@@ -25,7 +25,7 @@ class CreateParametrosTable extends Migration
 
         Schema::create('banco_parametro', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('valor');
+            $table->text('valor');
             $table->integer('parametro_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros')->onDelete('cascade');
             $table->integer('banco_id')->unsigned();

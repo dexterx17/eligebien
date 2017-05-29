@@ -63,7 +63,7 @@
             switch (dato.unidad) {
                 case "texto":
                     input += '<textarea name="param';
-                    input += dato.id+'" class="form-control" required="required" placeholder="';
+                    input += dato.id+'" rows="5" class="form-control" required="required" placeholder="';
                     input += dato.descripcion+'"></textarea>';
                     break;
                 case "booleano":
