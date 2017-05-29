@@ -26,8 +26,10 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Banco::class, function (Faker\Generator $faker) {
+    $nombre = $faker->name;
     return [
-        'nombre' => $faker->name,
+        'nombre' => $nombre,
+        'slug' => str_slug($nombre),
         'logo' => $faker->imageUrl(),
         'web' => $faker->url,
         'telefonos' => $faker->phoneNumber,
@@ -37,9 +39,13 @@ $factory->define(App\Banco::class, function (Faker\Generator $faker) {
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Servicio::class, function (Faker\Generator $faker) {
+    $categorias = ['cuentas','prestamos','tarjetas','dpf'];
+    $nombre = $faker->name;
     return [
-        'servicio' => $faker->name,
-        'descripcion' => $faker->text
+        'servicio' => $nombre,
+        'slug' => str_slug($nombre),
+        'descripcion' => $faker->text,
+        'categoria' => $faker->randomElement($categorias)
     ];
 });
 

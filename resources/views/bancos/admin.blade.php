@@ -23,8 +23,9 @@
                             <thead>
                                 <tr>
                                     <th class="text-center" width="10%">Web</th>
-                                    <th class="text-center" width="60%">Banco</th>
+                                    <th class="text-center" width="50%">Banco</th>
                                     <th class="text-center" width="10%">Puntuación</th>
+                                    <th class="text-center" width="10%">Servicios</th>
                                     @if(Auth::user()->type=="admin")
                                         <th class="text-center" width="20%">Acciones</th>
                                     @endif
@@ -40,6 +41,9 @@
                                     </td>
                                     <td>{{ $banco->nombre }}</td>
                                     <td class="text-center">{{ $banco->puntuacion }}</td>
+                                    <td class="text-center">
+                                        <a href="{{ route('admin.valores',$banco->id) }}">{{ $banco->servicios()->count() }}</a>
+                                    </td>
                                     @if(Auth::user()->type=="admin")
                                         <td class="text-center">
                                             <a class="btn btn-info btn-xs" href="{{ route('bancos.edit',$banco->id)}}">

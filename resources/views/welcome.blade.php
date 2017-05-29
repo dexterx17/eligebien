@@ -42,18 +42,26 @@
                                 <tr>
                                     <th class="text-center">Servicio</th>
                                     <th class="text-center">Parámetros de comparación</th>
+                                    <th width="10%" class="text-center">Entidades financieras comparadas</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($servicios as $servicio)
                                     <tr>
-                                        <th class="text-center text-uppercase">{{ ucfirst($servicio->servicio) }}</th>
+                                        <th class="text-center text-uppercase">
+                                            <a href="{{ route('servicio',$servicio->slug) }}" title="{{ ucfirst($servicio->servicio) }}">
+                                                {{ ucfirst($servicio->servicio) }}
+                                            </a>
+                                        </th>
                                         <td>
                                             <ul>
                                                 @foreach($servicio->parametros as $p)
                                                     <li>{{ $p->parametro }}</li>
                                                 @endforeach
                                             </ul>
+                                        </td>
+                                        <td class="text-center">
+                                            {{ $servicio->bancos()->count() }}
                                         </td>
                                     </tr>
                                 @endforeach

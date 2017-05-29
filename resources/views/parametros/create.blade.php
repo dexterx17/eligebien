@@ -28,7 +28,18 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="unidad">Unidad</label>
-                                        <input type="text" name="unidad" class="form-control" placeholder="Unidad (meses| porcentaje| interes)" value="" required="required">
+                                        <select name="unidad" class="form-control" required="required">
+                                            <optgroup label="Númerico">
+                                                <option value="numero">Porcentajes/montos/plazos</option>
+                                            </optgroup>
+                                            <optgroup label="Texto">
+                                                <option value="texto">Descripción/Ventajas</option>
+                                            </optgroup>
+                                            <optgroup label="SI/NO">
+                                                <option value="booleano">Garantias/Referencias</option>
+                                            </optgroup>
+                                        </select>
+                                        
                                     </div>
                                 </div>
                             </div>

@@ -54,7 +54,7 @@ class Parametros extends Controller
     public function edit($id){
         $parametro = Parametro::find($id);
         $this->datos['parametro'] = $parametro;
-        $this->datos['servicio'] = Servicio::find($parametro->id);
+        $this->datos['servicio'] = Servicio::find($parametro->servicio_id);
         return view('parametros.edit',$this->datos);
     }
 
@@ -77,5 +77,10 @@ class Parametros extends Controller
         $parametro->delete();
         //flash("Generalidad $parametro->titulo eliminada correctamente",'success');
         return redirect()->route('admin.parametros',$parametro->servicio_id);
+    }
+
+    public function lista($servicio_id){
+        $servicio = Servicio::find($servicio_id);
+        return response()->json($servicio->parametros);
     }
 }

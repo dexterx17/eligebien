@@ -15,6 +15,7 @@ class CreateBancosTable extends Migration
     {
         Schema::create('bancos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('slug')->unique();
             $table->string('nombre');
             $table->string('logo')->nullable();
             $table->string('web')->nullable();

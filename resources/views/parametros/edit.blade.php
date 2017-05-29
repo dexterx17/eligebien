@@ -28,7 +28,17 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="unidad">Unidad</label>
-                                        <input type="text" name="unidad" class="form-control" placeholder="Nombre del parámetro" value="{{ $parametro->unidad }}" required="required">
+                                        <select name="unidad" class="form-control" required="required">
+                                            <optgroup label="Númerico">
+                                                <option value="numero" @if($parametro->unidad=="numero") selected @endif >Porcentajes/montos/plazos</option>
+                                            </optgroup>
+                                            <optgroup label="Texto">
+                                                <option value="texto" @if($parametro->unidad=="texto") selected @endif>Descripción/Ventajas</option>
+                                            </optgroup>
+                                            <optgroup label="SI/NO">
+                                                <option value="booleano" @if($parametro->unidad=="booleano") selected @endif>Garantias/Referencias</option>
+                                            </optgroup>
+                                        </select>
                                     </div>
                                 </div>
                             </div>

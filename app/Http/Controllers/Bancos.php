@@ -39,7 +39,7 @@ class Bancos extends Controller
      */
     public function store(Request $request){
         $banco = new Banco($request->all());
-
+        $banco->slug = str_slug($request->nombre);
         $banco->save();
         //flash("$banco->titulo actualizado correctamente",'success');
         return redirect()->route('admin.bancos');
@@ -59,6 +59,7 @@ class Bancos extends Controller
     public function update(Request $request, $id){
         $banco = Banco::find($id);
         $banco->fill($request->all());
+        $banco->slug = str_slug($request->nombre);
         $banco->save();
         //flash("$banco->titulo actualizado correctamente",'success');
         return redirect()->route('admin.bancos');

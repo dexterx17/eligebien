@@ -38,7 +38,7 @@ class Servicios extends Controller
      */
     public function store(Request $request){
         $servicio = new Servicio($request->all());
-
+        $servicio->slug = str_slug($request->servicio);
         $servicio->save();
         //flash("$servicio->titulo actualizado correctamente",'success');
         return redirect()->route('admin.servicios');
@@ -58,6 +58,7 @@ class Servicios extends Controller
     public function update(Request $request, $id){
         $servicio = Servicio::find($id);
         $servicio->fill($request->all());
+        $servicio->slug = str_slug($request->servicio);
         $servicio->save();
         //flash("$servicio->titulo actualizado correctamente",'success');
         return redirect()->route('admin.servicios');

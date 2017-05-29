@@ -31,6 +31,15 @@ class HomeController extends Controller
         return view('welcome',$this->datos);
     }
 
+
+    public function servicio($servicio_slug){
+        $servicio = Servicio::where('slug',$servicio_slug)->first();
+
+        $this->datos['servicio'] = $servicio;
+
+        return view('servicio',$this->datos);
+    }
+
     public function admin(){
         return view('admin',$this->datos);
     }
