@@ -27,7 +27,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $this->datos['servicios'] = Servicio::all();
+        $servicios = Servicio::all();
+        $grupos = $servicios->groupBy('categoria');
+        $this->datos['servicios'] = $grupos;
+
         return view('welcome',$this->datos);
     }
 

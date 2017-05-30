@@ -12,5 +12,22 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
+
     mix.sass(['app.scss','light-bootstrap-dashboard.scss']);
+
+    mix.sass(['app.scss','now-ui-kit.scss'],'public/css/now.css');
+
+});
+
+elixir(function(mix){
+
+	mix.scripts([
+		'core/jquery.3.2.1.min.js',
+		'core/tether.min.js',
+		'core/bootstrap.min.js',
+		'plugins/bootstrap-switch.js',
+		'plugins/nouislider.min.js',
+		'plugins/bootstrap-datepicker.js',
+		'now-ui-kit.js',
+	],'public/js/now.js');
 });

@@ -11,13 +11,10 @@
     <title>{{ config('app.name', 'Elige bien') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/now.css') }}" rel="stylesheet">
 </head>
-<body>
-    <div id="app" class="wrapper">
-        @yield('left_menu')
-        <div class="main-panel">
-            <nav class="navbar navbar-default navbar-static-top">
+<body class="template-page">
+            <nav class="navbar navbar-toggleable-md bg-primary fixed-top ">
                 <div class="container">
                     <div class="navbar-header">
 
@@ -35,7 +32,7 @@
                         </a>
                     </div>
 
-                    <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                    <div class="collapse navbar-collapse  justify-content-end" id="app-navbar-collapse">
                         <!-- Left Side Of Navbar -->
                         <ul class="nav navbar-nav">
                             &nbsp;
@@ -79,11 +76,9 @@
 
             @yield('content')
 
-        </div>
-    </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/now.js') }}"></script>
     @yield('js')
 </body>
 </html>

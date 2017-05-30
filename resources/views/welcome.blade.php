@@ -1,76 +1,54 @@
 @extends('layouts.app')
 
-
-@section('left_menu')
-    @include('partials.left_menu')
-@endsection
-
 @section('content')
-<div class="content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Asistente financiero</div>
-
-                    <div class="panel-body">
-                        <h4 class="text-center">
-                            Consulta cuál es la mejor solución financiera que se ajusta a tus necesidades.
-                        </h4>
-    <!--                    <hr>
-                        @foreach($servicios as $servicio)
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                      <img class="media-object" src="{{ $servicio->icono }}" alt="{{ $servicio->servicio }}">
-                                    </a>
+<div class="wrapper">
+    <div class="section section-tabs">
+        <div class="container">
+            <ol class="breadcrumb">
+              <li class="active">Inicio</li>
+            </ol>
+            <div class="row">
+                <div class="col-md-12 offset-md-1 col-xl-6 offset-xl-0">
+                    <p class="category text-center">Consulta cuál es la mejor solución financiera que se ajusta a tus necesidades</p>
+                    <!-- Nav tabs -->
+                    <div class="card">
+                        <ul class="nav nav-tabs justify-content-center nav-justified" role="tablist">
+                            @foreach($servicios as $key=>$grupo)
+                            <li class="nav-item">
+                                <a class="nav-link @if($key=='cuentas') active @endif" data-toggle="tab" href="#{{ $key }}" role="tab">
+                                    <i class="now-ui-icons business_bank"></i> {{ ucfirst($key) }}
+                                </a>
+                            </li>
+                            @endforeach
+                        </ul>
+                        <div class="card-block">
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                @foreach($servicios as $key=>$grupo)
+                                <div class="tab-pane @if($key=='cuentas') active @endif" id="{{ $key }}" role="tabpanel">
+                                    <p>
+                                    </p>
+                                        <div class="list-group">
+  
+                                             @foreach($grupo as $servicio)
+                                                <a href="{{ route('servicio',$servicio->slug) }}" class="list-group-item">
+                                                    <p>
+                                                        <i class="now-ui-icons business_bank"></i> 
+                                                        {{ $servicio->servicio }} 
+                                                        <small class="pull-right">{{ $servicio->bancos()->count() }} bancos</small>
+                                                    </p>
+                                                </a>
+                                            @endforeach
+                                        </div>
                                 </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">{{ $servicio->servicio }}</h4>
-                                    <ul>
-                                        @foreach($servicio->parametros as $p)
-                                            <li>{{ $p->parametro }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
-                        @endforeach
-                        <hr>-->
-                        <hr>
-                        <table class="table table-responsive table-hover table-bordered">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">Servicio</th>
-                                    <th class="text-center">Parámetros de comparación</th>
-                                    <th width="10%" class="text-center">Entidades financieras comparadas</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($servicios as $servicio)
-                                    <tr>
-                                        <th class="text-center text-uppercase">
-                                            <a href="{{ route('servicio',$servicio->slug) }}" title="{{ ucfirst($servicio->servicio) }}">
-                                                {{ ucfirst($servicio->servicio) }}
-                                            </a>
-                                        </th>
-                                        <td>
-                                            <ul>
-                                                @foreach($servicio->parametros as $p)
-                                                    <li>{{ $p->parametro }}</li>
-                                                @endforeach
-                                            </ul>
-                                        </td>
-                                        <td class="text-center">
-                                            {{ $servicio->bancos()->count() }}
-                                        </td>
-                                    </tr>
                                 @endforeach
-                            </tbody>
-                        </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- End Section Tabs -->
 </div>
 @endsection
