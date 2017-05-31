@@ -75,3 +75,11 @@
 </div>
 
 @endsection
+@section('js')
+<script type="text/javascript" charset="utf-8">
+    function main(){
+        $('textarea').tagEditor();
+    }
+    $(document).ready(main);
+</script>
+@endsection

@@ -23,7 +23,8 @@ class ServiciosSeeder extends Seeder
         for ($i=0; $i < count($cuentas); $i++) { 
             $cuenta = factory(App\Servicio::class)->create([
     	        'servicio' => $cuentas[$i],
-                'categoria' => 'cuentas'
+                'categoria' => 'cuentas',
+                'icono' => 'now-ui-icons business_pig'
     	    ]);   
 
             $beneficios = factory(App\Parametro::class)->create([
@@ -45,7 +46,14 @@ class ServiciosSeeder extends Seeder
                 'parametro' => 'Requisitos',
                 'unidad' => 'texto',
                 'servicio_id' =>$cuenta->id,
-                'descripcion' => 'Requisitos para apertura de cuenta'
+                'descripcion' => 'Requisitos para apertura de cuentas'
+            ]);
+
+            $beneficios = factory(App\Parametro::class)->create([
+                'parametro' => 'Requisitos personas jurídicas',
+                'unidad' => 'texto',
+                'servicio_id' =>$cuenta->id,
+                'descripcion' => 'Requisitos para apertura de cuentas para personas jurídicas'
             ]);
         }
 
@@ -53,7 +61,8 @@ class ServiciosSeeder extends Seeder
         /***************** DPF ***************/
         $dpf = factory(App\Servicio::class)->create([
             'servicio' =>  'Depositos a plazo fijo',
-            'categoria' => 'dpf'
+            'categoria' => 'dpf',
+            'icono' => 'now-ui-icons business_chart-pie-36'
         ]);   
 
         $beneficios = factory(App\Parametro::class)->create([
@@ -72,7 +81,8 @@ class ServiciosSeeder extends Seeder
         for ($i=0; $i < count($prestamos); $i++) { 
             $ser = factory(App\Servicio::class)->create([
                 'servicio' => $prestamos[$i],
-                'categoria' => 'prestamos'
+                'categoria' => 'prestamos',
+                'icono' => 'now-ui-icons business_money-coins'
             ]); 
 
             factory(App\Parametro::class)->create([
@@ -105,7 +115,8 @@ class ServiciosSeeder extends Seeder
         for ($i=0; $i < count($tarjetas); $i++) { 
             $ser = factory(App\Servicio::class)->create([
                 'servicio' => $tarjetas[$i],
-                'categoria' => 'tarjetas'
+                'categoria' => 'tarjetas',
+                'icono' => 'now-ui-icons shopping_credit-card'
             ]); 
 
             factory(App\Parametro::class)->create([

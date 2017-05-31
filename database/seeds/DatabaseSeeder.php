@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
          $this->call(BancosSeeder::class);
          $this->call(ServiciosSeeder::class);
          $this->call(BancoAmazonas::class);
+         $this->call(BolivarianoSeeder::class);
     }
 }

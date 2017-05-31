@@ -30,15 +30,28 @@
                                 <tr>
                                     <td>{{ $servicio->servicio }}</td>
                                     <td class="text-center">
-                                        <ul>
-                                            @foreach($servicio->parametrosByBanco($banco->id)->get() as $p)
-                                                <li>
-                                                    {{ $p->parametro }} 
-                                                    :
-                                                    {{ $p->valor }} 
-                                                </li>
-                                            @endforeach
-                                        </ul>
+                                        <table class="table table-bordered table-hover">
+                                            <tbody>
+                                                @foreach($servicio->parametrosByBanco($banco->id)->get() as $p)
+                                                <tr>
+                                                    <td>
+                                                        {{ $p->parametro }} 
+                                                    </td>
+                                                    <td>
+                                                        @if($p->unidad=="texto")
+                                                            <ul>
+                                                            @foreach(explode(";",$p->valor) as $v)
+                                                                <li>{{ $v }}</li>
+                                                            @endforeach
+                                                            </ul>
+                                                        @else
+                                                            {{ $p->valor }} 
+                                                        @endif
+                                                    </td>
+                                                </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
                                     </td>
                                     <td class="text-center">
                                         <a class="btn btn-info btn-xs" href="{{ route('valores.edit',[$banco->id,$servicio->id])}}">

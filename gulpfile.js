@@ -15,7 +15,21 @@ elixir(function(mix) {
 
     mix.sass(['app.scss','light-bootstrap-dashboard.scss']);
 
-    mix.sass(['app.scss','now-ui-kit.scss'],'public/css/now.css');
+    mix.styles([
+    	'bootstrap.min.css',
+    	'animate.min.css',
+    	'light-bootstrap-dashboard.css',
+    	'admin.css',
+    	'pe-icon-7-stroke.css',
+    	'jquery.tag-editor.css',
+    	'../../../node_modules/jquery-ui-dist/jquery-ui.min.css',
+    	],'public/css/admin.css');
+
+    mix.styles([
+    	'bootstrap_now.min.css',
+    	'now-ui-kit.css',
+    	'demo.css',
+    	'jquery.tag-editor.css'],'public/css/now.css');
 
 });
 
@@ -28,6 +42,18 @@ elixir(function(mix){
 		'plugins/bootstrap-switch.js',
 		'plugins/nouislider.min.js',
 		'plugins/bootstrap-datepicker.js',
-		'now-ui-kit.js',
+		'now-ui-kit.js'
 	],'public/js/now.js');
+
+	mix.scripts([
+		'core/jquery.3.2.1.min.js',
+		'core/tether.min.js',
+		'core/bootstrap.min.js',
+		'plugins/bootstrap-switch.js',
+		'plugins/nouislider.min.js',
+		'plugins/bootstrap-datepicker.js',
+		'../../../node_modules/jquery-ui-dist/jquery-ui.min.js',
+		'jquery.caret.min.js',
+		'jquery.tag-editor.min.js',
+	],'public/js/admin.js');
 });

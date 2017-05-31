@@ -36,7 +36,7 @@
                                 <tr>
                                     <td class="text-center">
                                         <a href="{{ $banco->web }}" title="{{ $banco->nombre }}" target="_blanck">
-                                            <img src="{{ $banco->logo }}" alt="Ir a {{ $banco->nombre }}" width="30" height="30">
+                                            <img src="{{ asset($banco->logo) }}" alt="Ir a {{ $banco->nombre }}" width="80" height="40">
                                         </a>
                                     </td>
                                     <td>{{ $banco->nombre }}</td>
