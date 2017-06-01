@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -16,6 +17,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/servicios/{servicio_slug}', 'HomeController@servicio')->name('servicio');
+Route::get('/bot', 'HomeController@bot')->name('bot');
 
 Route::group(['middleware'=>'auth'],function(){
 	

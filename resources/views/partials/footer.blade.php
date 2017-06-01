@@ -8,6 +8,11 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ url('/bot') }}">
+                        Bot
+                    </a>
+                </li>
+                <li>
                     <a href="{{ url('') }}">
                         Acerca de
                     </a>

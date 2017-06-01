@@ -48,4 +48,8 @@ class HomeController extends Controller
     }
 
     public function perfil(){}
+
+    public function bot(){
+        return view('bot',$this->datos);
+    }
 }

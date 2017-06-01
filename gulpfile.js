@@ -22,13 +22,14 @@ elixir(function(mix) {
     	'admin.css',
     	'pe-icon-7-stroke.css',
     	'jquery.tag-editor.css',
-    	'../../../node_modules/jquery-ui-dist/jquery-ui.min.css',
+    	'../../../node_modules/jquery-ui-dist/jquery-ui.min.css'
     	],'public/css/admin.css');
 
     mix.styles([
     	'bootstrap_now.min.css',
     	'now-ui-kit.css',
     	'demo.css',
+    	'gif.css',
     	'jquery.tag-editor.css'],'public/css/now.css');
 
 });
@@ -42,6 +43,7 @@ elixir(function(mix){
 		'plugins/bootstrap-switch.js',
 		'plugins/nouislider.min.js',
 		'plugins/bootstrap-datepicker.js',
+		'gif.js',
 		'now-ui-kit.js'
 	],'public/js/now.js');
 
@@ -54,6 +56,6 @@ elixir(function(mix){
 		'plugins/bootstrap-datepicker.js',
 		'../../../node_modules/jquery-ui-dist/jquery-ui.min.js',
 		'jquery.caret.min.js',
-		'jquery.tag-editor.min.js',
+		'jquery.tag-editor.min.js'
 	],'public/js/admin.js');
 });
